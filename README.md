@@ -35,7 +35,8 @@ They only have chance to manipulate by change ``block_timestamp``
 ```
 max(1 - (block_timestamp - parent_timestamp) // 10, -99)
 ```
-If block_timestamp - parent_timestamp < 10 secs : Not possible to manipulate, difficulty not change.
-If block_timestamp - parent_timestamp > 10 secs : and he can change difficulty by ``max(1, -99)``.
+* If block_timestamp - parent_timestamp < 10 secs : Not possible to manipulate, difficulty not change.
+
+* If block_timestamp - parent_timestamp > 10 secs : and he can change difficulty by ``max(1, -99)``.
 When he try to manipulating he's also push himself to risk, his block may be come an uncle block. 
 

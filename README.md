@@ -2,7 +2,9 @@
 
 ## Introduction
 
-**The Divine** contract which's give you power and belong to the void. No free is require, you have to pay for gas cost and get the **Power**.
+**The Divine** uncontrollable number.
+
+**The Divine** contract which's give you power and belong to the void. No fees are require, you have to pay for gas cost and get the **Power**.
 
 ## Concept
 
@@ -16,5 +18,12 @@
 
 * Previous chain value
 * Current block timestamp
-* Remaining gas
+* Sender address
 * Current difficulty
+
+## Why ?
+
+* **Previous chain value:** You are only change it by change previous value, and it's impossible.
+* Miner don't know when another miner found new block.
+* Sender address is addition value, user can not manipulate it.
+* Current difficulty is control by algorithm and whole network.

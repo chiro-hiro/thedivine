@@ -24,6 +24,6 @@
 ## Why ?
 
 * **Previous chain value:** You are only change it by change previous value, and it's impossible.
-* Miner don't know when another miner found new block.
-* Sender address is addition value, user can not manipulate it.
-* Current difficulty is control by algorithm and whole network.
+* **Current block timestamp:** Miner don't know when another miner found new block.
+* **Sender address:** is addition value, user can not manipulate it.
+* **Current difficulty:** is control by algorithm and whole network.

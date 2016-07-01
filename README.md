@@ -4,6 +4,8 @@
 
 **The Divine** uncontrollable number.
 
+**The Divine** is one more security layer to protect your RNG contract, RANDAO,...from many kind of attack.
+
 **The Divine** contract which's give you power and belong to the void. No fees are required, you have to pay for gas cost and get the **Power**.
 
 ## Concept

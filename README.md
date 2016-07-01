@@ -4,7 +4,7 @@
 
 **The Divine** uncontrollable number.
 
-**The Divine** contract which's give you power and belong to the void. No fees are require, you have to pay for gas cost and get the **Power**.
+**The Divine** contract which's give you power and belong to the void. No fees are required, you have to pay for gas cost and get the **Power**.
 
 ## Concept
 

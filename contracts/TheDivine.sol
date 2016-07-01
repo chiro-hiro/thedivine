@@ -7,7 +7,6 @@ contract TheDivine{
     
     function GetPower() returns(uint256){
         WorldTree = uint256(sha3(WorldTree,
-            block.timestamp,
             msg.sender,
             block.difficulty));
         return WorldTree;

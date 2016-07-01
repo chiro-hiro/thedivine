@@ -19,13 +19,11 @@
 **World Tree** is chain, one chain is created by:
 
 * Previous chain value
-* Current block timestamp
 * Sender address
 * Current difficulty
 
 ## Why ?
 
 * **Previous chain value:** You are only change it by change previous value, and it's impossible.
-* **Current block timestamp:** Miner don't know when another miner found new block.
 * **Sender address:** is addition value, user can not manipulate it.
 * **Current difficulty:** is control by algorithm and whole network.

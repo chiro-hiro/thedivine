@@ -17,4 +17,4 @@
 * Previous chain value
 * Current block timestamp
 * Remaining gas
-* Current time when were you trigger contract to give you power
+* Current difficulty

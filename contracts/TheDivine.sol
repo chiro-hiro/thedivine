@@ -10,7 +10,7 @@ contract TheDivine{
             WorldTree,
             block.timestamp,
             msg.gas,
-            now));
+            block.difficulty));
         return WorldTree;
     }
     

@@ -8,6 +8,8 @@
 
 **The Divine** is contract which's give you power and belong to the void. No fees are required, you have to pay for gas cost and get the **Power** (*unsigned 256 bits integer*).
 
+**DO NOT USE THE DIVINE AS A RNG.**
+
 ## Concept
 
 **The Divine** is a smart contract which was growing a **World Tree**.
@@ -42,8 +44,8 @@ When he tries to manipulating he's also pushing himself to risk, his block may b
 
 ## Risks
 
-* It can not protect you from [51% attack](http://ethdocs.org/en/latest/mining.html#what-is-mining).
+* It cannot protect you from [51% attack](http://ethdocs.org/en/latest/mining.html#what-is-mining).
 * This contract can be manipulated by combining all conditions:
-    * Malicious miner was found a block which is ```GetPower()``` was called.
-    * Malicious have been increased the difficulty by hold mined block.
-    * Malicious block do not become an uncle block.
+    * The malicious miner was found a block which is ```GetPower()``` was called.
+    * The malicious miner have been increasing the difficulty by hold mined block.
+    * The malicious block does not become an uncle block.

@@ -35,8 +35,15 @@ They only have a chance to manipulate by change ``block_timestamp``
 ```
 max(1 - (block_timestamp - parent_timestamp) // 10, -99)
 ```
-* ```If block_timestamp - parent_timestamp < 10 seconds`` : Not possible to manipulate, the difficulty didn't change.
+* ```If block_timestamp - parent_timestamp < 10 seconds``` : Not possible to manipulate, the difficulty didn't change.
 
 * ```If block_timestamp - parent_timestamp > 10 seconds``` : and he can change the difficulty by ``max(1, -99)``.
 When he tries to manipulating he's also pushing himself to risk, his block may become an uncle block. 
 
+## Risks
+
+* It can not protect you from (51% attack)[http://ethdocs.org/en/latest/mining.html#what-is-mining].
+* This contract can be manipulated by combining all conditions:
+..* Malicious miner was found a block which is ```GetPower()``` was called.
+..* Malicious increase the difficulty by hold mined block.
+..* Malicious block do not become an uncle block.

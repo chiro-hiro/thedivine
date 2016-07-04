@@ -6,7 +6,7 @@
 
 **The Divine** is one more security layer to protect your RNG contract, RANDAO,...from many kinds of attack.
 
-**The Divine** is contract which's give you power and belong to the void. No fees are required, you have to pay for gas cost and get the **Power** (*unsigned 256 bits integer*).
+**The Divine** is a smart contract which gives you **power** and belong to the void. No fees are required, you have to pay for gas cost and get the **power** (*unsigned 256 bits integer*).
 
 **DO NOT USE THE DIVINE AS A RNG.**
 
@@ -16,7 +16,7 @@
 
 **World Tree** is grown by **you** and **anyone** who is using this contract.
 
-**World Tree** Have root and it's **World Tree's** address.
+**World Tree** have root and it's **World Tree's** address.
 
 **World Tree** is chained, one chain is created by:
 
@@ -26,9 +26,9 @@
 
 ## Why ?
 
-* **The Divine didn't store anything:** To make sure that no one can read it own data. Anyone try to create off-chain simulates and read **The Divine's** data will read all priceless value. Because it is always change.
+* **The Divine didn't store anything:** To make sure that no one can read it own data. Anyone try to create off-chain simulates and read **The Divine's** data will read all invalid data cuz it is always change.
 * **Previous chain value:** You are only changing it by change previous value, and it's impossible.
-* **Sender address:** is adding value, user can not manipulate it.
+* **Sender address:** is adding value, user cannot manipulate it.
 * **Current difficulty:** is controlled by an algorithm and the whole network. Let's take a look.
 ```
 block_diff = parent_diff + parent_diff // 2048 * max(1 - (block_timestamp - parent_timestamp) // 10, -99) + int(2**((block.number // 100000) - 2))

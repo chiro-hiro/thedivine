@@ -26,6 +26,7 @@
 
 ## Why ?
 
+* **The Divine didn't store anything:** To make sure that no one can read it own data. Anyone try to create off-chain simulates and read **The Divine's** data will read all priceless value. Because it is always change.
 * **Previous chain value:** You are only changing it by change previous value, and it's impossible.
 * **Sender address:** is adding value, user can not manipulate it.
 * **Current difficulty:** is controlled by an algorithm and the whole network. Let's take a look.

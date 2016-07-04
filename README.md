@@ -45,5 +45,5 @@ When he tries to manipulating he's also pushing himself to risk, his block may b
 * It can not protect you from [51% attack](http://ethdocs.org/en/latest/mining.html#what-is-mining).
 * This contract can be manipulated by combining all conditions:
     * Malicious miner was found a block which is ```GetPower()``` was called.
-    * Malicious increase the difficulty by hold mined block.
+    * Malicious have been increased the difficulty by hold mined block.
     * Malicious block do not become an uncle block.

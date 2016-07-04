@@ -6,7 +6,7 @@
 
 **The Divine** is one more security layer to protect your RNG contract, RANDAO,...from many kinds of attack.
 
-**The Divine** is contract which's give you power and belong to the void. No fees are required, you have to pay for gas cost and get the **Power** (__unsigned 256 bits integer__).
+**The Divine** is contract which's give you power and belong to the void. No fees are required, you have to pay for gas cost and get the **Power** (*unsigned 256 bits integer*).
 
 ## Concept
 
@@ -35,8 +35,8 @@ They only have a chance to manipulate by change ``block_timestamp``
 ```
 max(1 - (block_timestamp - parent_timestamp) // 10, -99)
 ```
-* If block_timestamp - parent_timestamp < 10 seconds : Not possible to manipulate, the difficulty didn't change.
+* ```If block_timestamp - parent_timestamp < 10 seconds`` : Not possible to manipulate, the difficulty didn't change.
 
-* If block_timestamp - parent_timestamp > 10 seconds : and he can change the difficulty by ``max(1, -99)``.
+* ```If block_timestamp - parent_timestamp > 10 seconds``` : and he can change the difficulty by ``max(1, -99)``.
 When he tries to manipulating he's also pushing himself to risk, his block may become an uncle block. 
 

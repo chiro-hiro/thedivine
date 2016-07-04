@@ -2,11 +2,11 @@
 
 ## Introduction
 
-**The Divine** uncontrollable number.
+**The Divine** is uncontrollable number.
 
 **The Divine** is one more security layer to protect your RNG contract, RANDAO,...from many kinds of attack.
 
-**The Divine** contract which's give you power and belong to the void. No fees are required, you have to pay for gas cost and get the **Power**.
+**The Divine** is contract which's give you power and belong to the void. No fees are required, you have to pay for gas cost and get the **Power** (__unsigned 256 bits integer__).
 
 ## Concept
 

@@ -21,7 +21,7 @@ contract TheDivine{
     
 
     /**
-    * Get result from PNG
+    * Get result from PRNG
     */
     function GetPower() public returns(bytes32){
         uint Previous = uint(sha3(Immotal[Total-1]));

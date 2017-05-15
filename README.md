@@ -1,7 +1,7 @@
 # The Divine
 Smart contracts allow us to generate and secure pseudo-random numbers and for the lowest cost. All processes and algorithms are transparent and open to everyone. The algorithm is thus safe and acceptable for a wide range of PRNG applications and situations where the cost to manipulate outweigh the transaction value.
 
-# Disclaimer:
+# Disclaimer
 Do not use this algorithm in gambling and/or use at your own risk. Definitely do not use this algorithm in cryptography.
 
 # What is The Divine?

@@ -1,26 +1,25 @@
-# TheDivine
-The smart contracts allow us to generate pseudo-random number and secure it with lowest cost. All process and algorithm are transparent and open to everyone. Therefor the algorithm still safe at acceptable on wide ranger of PRNG application when cost to manipulate are greater than transaction value.
+# The Divine
+Smart contracts allow us to generate and secure pseudo-random numbers and for the lowest cost. All processes and algorithms are transparent and open to everyone. The algorithm is thus safe and acceptable for a wide range of PRNG applications and situations where the cost to manipulate outweigh the transaction value.
 
-# Discaimler
-Do not use this algorithm in gambling and/or use at your own risk. And surely that, do not use in cryptography
+## Disclaimer: Do not use this algorithm in gambling and/or use at your own risk. Definitely do not use this algorithm in cryptography.
 
 # What is The Divine?
-The Divine is a immotality chain of randomness entropy, which was collected from message sender's nonce. Every sender have different nonce number that why they have recive a different result and contribute their own nonce to entropy chain. All user grownth and maintance immotality chain.
+The Divine is an immortality chain of randomness entropy, which is collected from the nonce of a sender's message . Each sender has a different nonce number they contribute to the entropy chain, thus ensuring a different. All users grow and maintain the immortality chain.
 
 # How does The Divine secure?
 
-Everytime anyone get result from The Divine, they also append their own randomness value to infinity chain. The randomness value had been created from:
+Anyone at anytime can get the results from The Divine, as well also add their own randomness value to the infinity chain. The randomness value had been created from:
 
-**Shift:** *The base of bits rotation, created following simple formula `((Previous RSHIFT 128) XOR (Previous LSHIFT 128)) MOD 256`*
+**Shift:** *The base of bits rotation is created by the simple formula: ((Previous RSHIFT 128) XOR (Previous LSHIFT 128)) MOD 256*
 
-**Previous:** *The last value from the immotality chain, it will be rotated dependent to **Shift**.*
+**Previous:** *The last value from the immortality chain will be rotated dependent on **Shift**.*
 
-**ThePast:** *Random pickup value from the immotality chain, dependent to **Previous:**. It will be rotated dependent to **Shift**.*
+**ThePast:** *Random pickup value from the immortality chain is dependent on **Previous:**. It will be rotated dependent on **Shift**.*
 
 **Distance:** *Equal to **Previous** - **ThePast**.*
 
-**Total:** *The number of values in the immotality chain.*
+**Total:** *The number of immortality chain values.*
 
-**Nonce:**  *Nonce number of messange sender, this number increase each time sender request random number from The Divine.*
+**Nonce:**  *Nonce number of the message sender, this number increases each time the sender requests a random number from The Divine.*
 
-We will calculate **k** times the digest of all combine given data above. Thus honest participant call The Divine and pay for gas to execute TheDivine once times with complicated **O(n)**. Adversary who try to manipulate the result of The Divine they need precalculate, that's mean adversaris are going to solve **O(n^2)** to determine number of times they need to call The Divine. In case some unexpected participant may call to The Divine and change whole proccess by append they own entropy. Adversaries need to discard current calculation. With huge number of participants adversaries are not possible to manipulate the result anymore.
+We will calculate **k** times the Digest value of the combined data above. Honest participants bring The Divine and pay for the gas to execute it once The Divine has a complexity of **O(n)**. The dishonest participants who try to manipulate the result of The Divine need to precalculate, meaning solve **O(n^2)** to determine number of times they need to call The Divine. Sometimes unexpected participants will call The Divine and change the entire process by appended they own entropy forcing dishonest participants need to discard current calculation. With a huge number of participants, dishonest participants are unable to manipulate the results.

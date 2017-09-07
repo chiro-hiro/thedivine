@@ -12,7 +12,7 @@ contract TheDivine{
     uint public Total;
 
     /* Complex of digest compute */
-    uint constant Complex = 999;
+    uint constant Complex = 99;
        
     /**
     * Construct function

@@ -1,0 +1,15 @@
+sudo: false
+
+os: linux
+
+language: node_js
+
+node_js:
+  - "8.7"
+
+install:
+  - "npm install -g ganache-cli truffle"
+
+script:
+  - "chmod a+x ./scripts/test.sh"
+  - "./scripts/test.sh"

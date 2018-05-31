@@ -1,36 +1,36 @@
-pragma solidity ^0.4.11;
+pragma solidity ^0.4.23;
 
 contract TheDivine{
 
     /* Randomness chain */
-    mapping (uint => bytes32) public Immotal;
+    mapping (uint256 => bytes32) internal Immotal;
 
     /* Address nonce */
-    mapping (address => uint) public Nonce;
+    mapping (address => uint256) internal Nonce;
 
     /* Total number of randomness in the chain */
-    uint public Total;
+    uint256 internal Total;
 
     /* Complex of digest compute */
-    uint constant Complex = 99;
+    uint256 internal constant Complex = 12;
        
     /**
     * Construct function
     */
-    function TheDivine(){
-        Immotal[Total++] = sha3(this);
-        Immotal[Total++] = sha3(Immotal[0]);
+    constructor() public {
+        Immotal[Total++] = keccak256(this);
+        Immotal[Total++] = keccak256(Immotal[0]);
     }
     
 
     /**
     * Get result from PRNG
     */
-    function GetPower() public returns(bytes32){
-        uint Previous = uint(sha3(Immotal[Total-1]));
-        uint PickUp = (Previous >> 128) ^ (Previous << 128);
-        uint ThePast = uint(Immotal[PickUp % Total]);
-        uint Shift = PickUp % 256;
+    function rnd() public returns(bytes32){
+        uint256 Previous = uint256(keccak256(Immotal[Total-1]));
+        uint256 PickUp = (Previous >> 128) ^ (Previous << 128);
+        uint256 ThePast = uint256(Immotal[PickUp % Total]);
+        uint256 Shift = PickUp % 256;
         bytes32 Temporary;
         
         // Rotate previous value by shift operator
@@ -40,14 +40,10 @@ contract TheDivine{
         ThePast = (ThePast >> (256 - Shift)) | (ThePast << Shift);
         
         // Calculate digest by Complex times
-        Temporary = sha3(Previous,                   // Previous
-                         ThePast,                    // Random pickup value from the chain
-                         Previous - ThePast,         // Distance
-                         Total,                      // Total number of randomness in the chain
-                         Nonce[msg.sender]++);       // Sender nonce
+        Temporary = keccak256(Previous, ThePast, Previous - ThePast, Total, Nonce[msg.sender]++);
 
-        for(uint Count = 0; Count < Complex; Count++){
-            Temporary = sha3(Temporary);
+        for(uint256 Count = 0; Count < Complex; Count++){
+            Temporary = keccak256(Temporary);
         }
 
         // Append number to the chain
@@ -60,8 +56,8 @@ contract TheDivine{
     /**
     * No Ethereum will be trapped
     */
-    function (){
-        throw;
+    function () public payable {
+        revert();
     }
 
 }

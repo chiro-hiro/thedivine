@@ -5,7 +5,7 @@ var instanceTheDivine;
 
 contract('TheDivine', function (accounts) {
 
-    it('The Divine should product 1000 sample without duplicated', async function () {
+    it('The Divine should product 1000 samples without any duplicated', async function () {
         let samples = [];
         instanceTheDivine = await TheDivine.deployed().then(function (instance) {
             return instance;

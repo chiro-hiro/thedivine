@@ -18,8 +18,8 @@ contract TheDivine{
     * Construct function
     */
     constructor() public {
-        Immotal[Total++] = keccak256(this);
-        Immotal[Total++] = keccak256(Immotal[0]);
+        Immotal[Total++] = keccak256(abi.encode(this));
+        Immotal[Total++] = keccak256(abi.encode(Immotal[0]));
     }
     
 
@@ -27,7 +27,7 @@ contract TheDivine{
     * Get result from PRNG
     */
     function rnd() public returns(bytes32){
-        uint256 Previous = uint256(keccak256(Immotal[Total-1]));
+        uint256 Previous = uint256(keccak256(abi.encode(Immotal[Total-1])));
         uint256 PickUp = (Previous >> 128) ^ (Previous << 128);
         uint256 ThePast = uint256(Immotal[PickUp % Total]);
         uint256 Shift = PickUp % 256;
@@ -40,10 +40,13 @@ contract TheDivine{
         ThePast = (ThePast >> (256 - Shift)) | (ThePast << Shift);
         
         // Calculate digest by Complex times
-        Temporary = keccak256(Previous, ThePast, Previous - ThePast, Total, Nonce[msg.sender]++);
+        Temporary = keccak256(abi.encode(ThePast, Previous - ThePast, Total, Nonce[msg.sender]));
+
+        //Increase caller nonce
+        Nonce[msg.sender]++;
 
         for(uint256 Count = 0; Count < Complex; Count++){
-            Temporary = keccak256(Temporary);
+            Temporary = keccak256(abi.encode(Temporary));
         }
 
         // Append number to the chain

@@ -3,57 +3,58 @@ pragma solidity ^0.4.23;
 contract TheDivine{
 
     /* Randomness chain */
-    mapping (uint256 => bytes32) internal Immotal;
+    mapping (uint256 => bytes32) internal immotal;
 
     /* Address nonce */
-    mapping (address => uint256) internal Nonce;
+    mapping (address => uint256) internal nonce;
 
     /* Total number of randomness in the chain */
-    uint256 internal Total;
+    uint256 internal total;
 
     /* Complex of digest compute */
-    uint256 internal constant Complex = 12;
+    uint256 internal constant complex = 12;
        
     /**
     * Construct function
     */
     constructor() public {
-        Immotal[Total++] = keccak256(abi.encode(this));
-        Immotal[Total++] = keccak256(abi.encode(Immotal[0]));
+        immotal[total++] = keccak256(abi.encode(this));
+        immotal[total++] = keccak256(abi.encode(immotal[0]));
     }
     
 
     /**
     * Get result from PRNG
     */
-    function rnd() public returns(bytes32){
-        uint256 Previous = uint256(keccak256(abi.encode(Immotal[Total-1])));
-        uint256 PickUp = (Previous >> 128) ^ (Previous << 128);
-        uint256 ThePast = uint256(Immotal[PickUp % Total]);
-        uint256 Shift = PickUp % 256;
-        bytes32 Temporary;
+    function rand() public returns(bytes32){
+        uint256 previous = uint256(keccak256(abi.encode(immotal[total-1])));
+        uint256 pickUp = (previous >> 128) ^ (previous << 128);
+        uint256 thePast = uint256(immotal[pickUp % total]);
+        uint256 shift = pickUp % 256;
+        bytes32 temporary;
         
         // Rotate previous value by shift operator
-        Previous = (Previous >> Shift) | (Previous << (256 - Shift));
+        previous = (previous >> shift) | (previous << (256 - shift));
 
-        // Reverse rotate ThePast value by shift operator
-        ThePast = (ThePast >> (256 - Shift)) | (ThePast << Shift);
+        // Reverse rotate thePast value by shift operator
+        thePast = (thePast >> (256 - shift)) | (thePast << shift);
         
-        // Calculate digest by Complex times
-        Temporary = keccak256(abi.encode(ThePast, Previous - ThePast, Total, Nonce[msg.sender]));
+        // Calculate digest by complex times
+        temporary = keccak256(abi.encode(temporary, thePast, previous - thePast, total, nonce[msg.sender]));
 
         //Increase caller nonce
-        Nonce[msg.sender]++;
+        nonce[msg.sender]++;
 
-        for(uint256 Count = 0; Count < Complex; Count++){
-            Temporary = keccak256(abi.encode(Temporary));
+        for(uint256 c = 0; c < complex; c++){
+            temporary = keccak256(abi.encode(temporary));
         }
 
         // Append number to the chain
-        Immotal[Total++] = Temporary;
+        immotal[total] = temporary;
+        total++;
 
         // Return last number of the chain
-        return Immotal[Total-1];
+        return temporary;
     }
 
     /**

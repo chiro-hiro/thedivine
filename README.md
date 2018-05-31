@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/chiro-hiro/thedivine.svg?branch=master)](https://travis-ci.org/chiro-hiro/thedivine)
+
 # The Divine
 A smart contract is allow us to generate and secure pseudo-random numbers and for the lowest cost. All processes and algorithms are transparent and open to everyone. The algorithm is thus safe and acceptable for a wide range of PRNG applications and situations where the cost to manipulate outweigh the transaction value.
 

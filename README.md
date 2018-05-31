@@ -1,5 +1,5 @@
 # The Divine
-Smart contracts allow us to generate and secure pseudo-random numbers and for the lowest cost. All processes and algorithms are transparent and open to everyone. The algorithm is thus safe and acceptable for a wide range of PRNG applications and situations where the cost to manipulate outweigh the transaction value.
+A smart contract is allow us to generate and secure pseudo-random numbers and for the lowest cost. All processes and algorithms are transparent and open to everyone. The algorithm is thus safe and acceptable for a wide range of PRNG applications and situations where the cost to manipulate outweigh the transaction value.
 
 # Disclaimer
 Do not use this algorithm in gambling and/or use at your own risk. Definitely do not use this algorithm in cryptography.
@@ -23,4 +23,12 @@ Anyone at anytime can get the results from The Divine, as well also add their ow
 
 **Nonce:**  *Nonce number of the message sender, this number increases each time the sender requests a random number from The Divine.*
 
-We will calculate **k** times the Digest value of the combined data above. Honest participants request The Divine and pay for the gas to execute it once with complexity of **O(n)**.An adversary who try to manipulate the result of The Divine need to precalculate, meaning solve a complexity of **O(n^2)** to determine number of times they need to call The Divine. Sometimes unexpected participants will call The Divine and change the entire process by appended they own entropy forcing adversary need to discard current calculation. With a huge number of participants, adversary is unable to manipulate the results.
+We will calculate **n** times the Digest value of the combined data above. Honest participants request The Divine and pay for the gas to execute it once with complexity of **O(n)**.An adversary who try to manipulate the result of The Divine need to precalculate, meaning solve a complexity of **O(n^n)** to determine number of times they need to call The Divine. Sometimes unexpected participants will call The Divine and change the entire process by appended they own entropy forcing adversary need to discard current calculation. With a huge number of participants, adversary is unable to manipulate the results.
+
+# Reference
+
+[A Pseudorandom Number Generator with KECCAK Hash Function ](http://www.ijcee.org/papers/439-JE503.pdf)
+
+# License
+
+This software distributed under [MIT License](https://github.com/chiro-hiro/thedivine/blob/master/LICENSE)

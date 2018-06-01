@@ -25,7 +25,7 @@ Anyone at anytime can get the results from The Divine, as well also add their ow
 
 **Nonce:**  *Nonce number of the message sender, this number increases each time the sender requests a random number from The Divine.*
 
-We will calculate **n** times the Digest value of the combined data above. Honest participants request The Divine and pay for the gas to execute it once with complexity of **O(n)**.An adversary who try to manipulate the result of The Divine need to precalculate, meaning solve a complexity of **O(n^n)** to determine number of times they need to call The Divine. Sometimes unexpected participants will call The Divine and change the entire process by appended they own entropy forcing adversary need to discard current calculation. With a huge number of participants, adversary is unable to manipulate the results.
+We will calculate **complex** times the Digest value of the combined data above. Honest participants request The Divine and pay for the gas to execute it once with complexity of **O(1)**.An adversary who try to manipulate the result of The Divine need to precalculate, meaning solve higher complexity to determine number of times they need to call The Divine. Sometimes unexpected participants will call The Divine and change the entire process by appended they own entropy forcing adversary need to discard current calculation. With a huge number of participants, adversary is unable to manipulate the results.
 
 # Reference
 

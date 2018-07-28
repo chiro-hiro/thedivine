@@ -9,23 +9,38 @@ Do not use this algorithm in gambling and/or use at your own risk. Definitely do
 # What is The Divine?
 The Divine is an immortality chain of randomness entropy, which is collected from the nonce of a sender's message . Each sender has a different nonce number they contribute to the entropy chain, thus ensuring a different. All users grow and maintain the immortality chain.
 
-# How does The Divine secure?
+# How to use TheDivine?
 
-Anyone at anytime can get the results from The Divine, as well also add their own randomness value to the infinity chain. The randomness value had been created from:
+**Contract ABI:**
 
-**Shift:** *The base of bits rotation is created by the simple formula: `((Previous RSHIFT 128) XOR (Previous LSHIFT 128)) MOD 256`*
+```
+[{"constant":false,"inputs":[],"name":"rand","outputs":[{"name":"result","type":"bytes32"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_sender","type":"address"},{"indexed":false,"name":"_complex","type":"uint256"},{"indexed":false,"name":"_randomValue","type":"bytes32"}],"name":"NewRand","type":"event"}]
+```
 
-**Previous:** *The last value from the immortality chain will be rotated dependent on **Shift**.*
+**Contract Address:** [0xf0068C4b8ea178CaaC88B70136BEe03b7953E479](https://etherscan.io/address/0xf0068C4b8ea178CaaC88B70136BEe03b7953E479)
+```
+0xf0068C4b8ea178CaaC88B70136BEe03b7953E479
+```
 
-**ThePast:** *Random pickup value from the immortality chain is dependent on **Previous:**. It will be rotated dependent on **Shift**.*
+**Usage:**
 
-**Distance:** *Equal to **Previous** - **ThePast**.*
+```
+pragma solidity ^0.4.24;
 
-**Total:** *The number of immortality chain values.*
 
-**Nonce:**  *Nonce number of the message sender, this number increases each time the sender requests a random number from The Divine.*
+contract TheDivineInterface{
+    function rand() public returns(bytes32);
+}
 
-We will calculate **complex** times the Digest value of the combined data above. Honest participants request The Divine and pay for the gas to execute it once with complexity of **O(1)**.An adversary who try to manipulate the result of The Divine need to precalculate, meaning solve higher complexity to determine number of times they need to call The Divine. Sometimes unexpected participants will call The Divine and change the entire process by appended they own entropy forcing adversary need to discard current calculation. With a huge number of participants, adversary is unable to manipulate the results.
+contract TheDivineUser{
+
+    event Log(bytes32 _value);
+    
+    function testRand() public {
+        emit Log(TheDivineInterface(0x692a70D2e424a56D2C6C27aA97D1a86395877b3A).rand());
+    }
+}
+```
 
 # Reference
 

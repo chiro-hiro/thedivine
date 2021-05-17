@@ -6,15 +6,11 @@ A smart contract which allowed us to generate and secure pseudo-random numbers a
 
 Do not use this algorithm in gambling and/or use at your own risk. Definitely do not use this algorithm in cryptography.
 
-# What is The Divine?
-
-The Divine is an immortality chain of randomness entropy, which is collected from the nonce of a sender's message . Each sender has a different nonce number they contribute to the entropy chain, thus ensuring a different. All users grow and maintain the immortality chain.
-
 # What is the idea behidden it?
 
 ## The idea
 
-We get `blockhash` of 32th older blocks from blockchain and combine with `immortal` by using `xor` operator.
+We get `blockhash` of 32th older blocks from blockchain and combine with `immortal` by using `xor` operator then appending to blockchain state.
 
 ```
     immortal <- blockchain state
@@ -23,7 +19,7 @@ We get `blockhash` of 32th older blocks from blockchain and combine with `immort
     return immortal
 ```
 
-We restrict normal account to trigger smart contract, the only way to trigger it is through a deployed smart contract
+We restrict normal account to trigger smart contract to prevent manipulation, the only way to trigger it is through a deployed smart contract
 
 ## Implementation
 
@@ -83,6 +79,8 @@ contract TheDivineUser{
     }
 }
 ```
+
+Gas cost is around `5190 Gas`.
 
 # Reference
 

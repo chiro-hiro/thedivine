@@ -6,7 +6,7 @@ A smart contract which allowed us to generate and secure pseudo-random numbers f
 
 Do not use this algorithm in gambling and/or use at your own risk. Definitely do not use this algorithm in cryptography. We're highly recommend as an extra salt to improve your random result.
 
-# What is the idea behidden it?
+# What is the idea behind it?
 
 ## The idea
 

@@ -72,15 +72,15 @@ Data is:
 
 It's code which was optimized to deploy a smart contract.
 
-```
-	0000    60  PUSH1 0x34      ; [divineCode.length]
-	0002    80  DUP1            ; [divineCode.length, divineCode.length]
-	0003    3D  RETURNDATASIZE  ; [0x00, divineCode.length, divineCode.length]
-	0004    90  SWAP1           ; [divineCode.length, 0x00, divineCode.length]
-	0005    60  PUSH1 0x0a      ; [0x0a, divineCode.length, 0x00, divineCode.length]
-	0007    82  DUP3            ; [0x00, 0x0a, divineCode.length, 0x00, divineCode.length]
-	0008    39  CODECOPY        ; [0x00, divineCode.length]
-	0009    F3  *RETURN         ; []
+```asm
+0000    60  PUSH1 0x34      ; [divineCode.length]
+0002    80  DUP1            ; [divineCode.length, divineCode.length]
+0003    3D  RETURNDATASIZE  ; [0x00, divineCode.length, divineCode.length]
+0004    90  SWAP1           ; [divineCode.length, 0x00, divineCode.length]
+0005    60  PUSH1 0x0a      ; [0x0a, divineCode.length, 0x00, divineCode.length]
+0007    82  DUP3            ; [0x00, 0x0a, divineCode.length, 0x00, divineCode.length]
+0008    39  CODECOPY        ; [0x00, divineCode.length]
+0009    F3  *RETURN         ; []
 ```
 
 It will return a pointer to `memory[divineCode.offset:divineCode.length]`

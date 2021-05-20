@@ -2,9 +2,9 @@
 
 A smart contract which allowed us to generate and secure pseudo-random numbers for the lowest cost. All processes and algorithms are transparent and open to everyone. The algorithm is thus safe and acceptable for a wide range of PRNG applications and situations where the cost to manipulate outweigh the transaction value.
 
-# Disclaimer
+## Disclaimer
 
-Do not use this algorithm in gambling and/or use at your own risk. Definitely do not use this algorithm in cryptography.
+Do not use this algorithm in gambling and/or use at your own risk. Definitely do not use this algorithm in cryptography. We're highly recommend as an extra salt to improve your random result.
 
 # What is the idea behidden it?
 
@@ -15,41 +15,41 @@ We get `blockhash` of 32th older blocks from blockchain and combine with `immort
 ```
     immortal <- blockchain state
     currentBlock <- blockchain sate
-    immortal <- keccak256(blockhash(currentBlock) xor immortal)
+    immortal <- keccak256(blockhash(currentBlock - 32) xor immortal)
     return immortal
 ```
 
-We restrict normal account to trigger smart contract to prevent manipulation, the only way to trigger it is through a deployed smart contract
+We restrict normal account to trigger smart contract to prevent manipulation, the only way to trigger it is through a deployed smart contract. As long as there are many users of TheDivine we could able to maintenance an immortality chain of entropy.
 
 ## Implementation
 
 EVM assembly
 
 ```asm
-60    PUSH1 0x20
-3d    RETURNDATASIZE
-33    CALLER
-32    ORIGIN
-18    XOR
-60    PUSH1 0x0a
-57    JUMPI
-fd    REVERT
-5b    JUMPDEST
-81    DUP2
-81    DUP2
-80    DUP1
-54    SLOAD
-82    DUP3
-43    NUMBER
-03    SUB
-40    BLOCKHASH
-18    XOR
-81    DUP2
-52    MSTORE
-20    SHA3
-81    DUP2
-55    SSTORE
-f3    RETURN
+60    PUSH1 0x20      ; [0x20]
+3d    RETURNDATASIZE  ; [0x00, 0x20]
+33    CALLER          ; [msg.sender, 0x00, 0x20]
+32    ORIGIN          ; [tx.origin, msg.sender, 0x00, 0x20]
+18    XOR             ; [tx.origin xor msg.sender, 0x00, 0x20]
+60    PUSH1 0x0a      ; [jumpdest, tx.origin xor msg.sender, 0x00, 0x20]
+57    JUMPI           ; [0x00, 0x20]
+fd    REVERT          ; We do revert(0x00, 0x20), if tx.origin == msg.sender
+5b    JUMPDEST        ; [0x00, 0x20]
+81    DUP2            ; [0x20, 0x00, 0x20]
+81    DUP2            ; [0x00, 0x20, 0x00, 0x20]
+80    DUP1            ; [0x00, 0x00, 0x20, 0x00, 0x20]
+54    SLOAD           ; [immortal, 0x00, 0x20, 0x00, 0x20]
+82    DUP3            ; [0x20, immortal, 0x00, 0x20, 0x00, 0x20]
+43    NUMBER          ; [block.number, 0x20, immortal, 0x00, 0x20, 0x00, 0x20]
+03    SUB             ; [block.number - 0x20, immortal, 0x00, 0x20, 0x00, 0x20]
+40    BLOCKHASH       ; [blockhash, immortal, 0x00, 0x20, 0x00, 0x20]
+18    XOR             ; [blockhash xor immortal, 0x00, 0x20, 0x00, 0x20]
+81    DUP2            ; [0x00, blockhash xor immortal, 0x00, 0x20, 0x00, 0x20]
+52    MSTORE          ; [0x00, 0x20, 0x00, 0x20]
+20    SHA3            ; [sha3(blockhash xor immortal), 0x00, 0x20]
+81    DUP2            ; [0x00, sha3(blockhash xor immortal), 0x00, 0x20]
+55    SSTORE          ; [0x00, 0x20]
+f3    RETURN          ; []
 ```
 
 Opcode:
@@ -58,29 +58,57 @@ Opcode:
 60203d333218600a57fd5b8181805482430340188152208155f3
 ```
 
+# Deployment
+
+The Divine was deployed in [0x7942d89cf2d9650a5fc0698700a483e6b777c62896fac719358994aab245d98c](https://etherscan.io/tx/0x7942d89cf2d9650a5fc0698700a483e6b777c62896fac719358994aab245d98c) at [0xD16448E35c21dbC3Ab48e5B32831CC7f8bf9a157](https://etherscan.io/address/0xd16448e35c21dbc3ab48e5b32831cc7f8bf9a157)
+
+Data is:
+
+```
+0x6034803d90600a8239f360203d333218600a57fd5b8181805482430340188152208155f3
+```
+
+## What is `6034803d90600a8239f3` ?
+
+It's code which was optimized to deploy a smart contract.
+
+```
+	0000    60  PUSH1 0x34      ; [divineCode.length]
+	0002    80  DUP1            ; [divineCode.length, divineCode.length]
+	0003    3D  RETURNDATASIZE  ; [0x00, divineCode.length, divineCode.length]
+	0004    90  SWAP1           ; [divineCode.length, 0x00, divineCode.length]
+	0005    60  PUSH1 0x0a      ; [0x0a, divineCode.length, 0x00, divineCode.length]
+	0007    82  DUP3            ; [0x00, 0x0a, divineCode.length, 0x00, divineCode.length]
+	0008    39  CODECOPY        ; [0x00, divineCode.length]
+	0009    F3  *RETURN         ; []
+```
+
+It will return a pointer to `memory[divineCode.offset:divineCode.length]`
+
 # How to use TheDivine?
 
 **Usage:**
 
-```
-pragma solidity >=0.8.4 <0.9.0;
+- Ethereum Mainnet: `0xD16448E35c21dbC3Ab48e5B32831CC7f8bf9a157`
 
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.4 <0.9.0;
 
 interface TheDivine {
     function rand() external returns(uint256);
 }
 
-contract TheDivineUser{
-
+contract TestTheDivine{
     event Log(uint256 indexed _value);
 
     function testRand() public {
-        emit Log(TheDivineInterface(0x00...00).rand());
+        emit Log(TheDivine(0xD16448E35c21dbC3Ab48e5B32831CC7f8bf9a157).rand());
     }
 }
 ```
 
-Gas cost is around `5190 Gas`.
+Gas cost is around `5190 Gas` each call.
 
 # Reference
 

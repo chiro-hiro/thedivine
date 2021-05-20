@@ -65,15 +65,15 @@ The Divine was deployed in [0x7942d89cf2d9650a5fc0698700a483e6b777c62896fac71935
 Data is:
 
 ```
-0x6034803d90600a8239f360203d333218600a57fd5b8181805482430340188152208155f3
+0x601a803d90600a8239f360203d333218600a57fd5b8181805482430340188152208155f3
 ```
 
-## What is `6034803d90600a8239f3` ?
+## What is `601a803d90600a8239f3` ?
 
 It's code which was optimized to deploy a smart contract.
 
 ```asm
-0000    60  PUSH1 0x34      ; [divineCode.length]
+0000    60  PUSH1 0x1a      ; [divineCode.length]
 0002    80  DUP1            ; [divineCode.length, divineCode.length]
 0003    3D  RETURNDATASIZE  ; [0x00, divineCode.length, divineCode.length]
 0004    90  SWAP1           ; [divineCode.length, 0x00, divineCode.length]

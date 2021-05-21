@@ -60,7 +60,14 @@ Opcode:
 
 # Deployment
 
+## Ethereum
+
 The Divine was deployed in [0x7942d89cf2d9650a5fc0698700a483e6b777c62896fac719358994aab245d98c](https://etherscan.io/tx/0x7942d89cf2d9650a5fc0698700a483e6b777c62896fac719358994aab245d98c) at [0xD16448E35c21dbC3Ab48e5B32831CC7f8bf9a157](https://etherscan.io/address/0xd16448e35c21dbc3ab48e5b32831cc7f8bf9a157)
+
+## Binance Smart Chain
+
+The Divine was deployed in [0x73ca699adfe8ae9204dbe299ae2c1492f09999e51950df5278bf3a9f0164cb1a](https://bscscan.com/tx/0x73ca699adfe8ae9204dbe299ae2c1492f09999e51950df5278bf3a9f0164cb1a) at [0xF52a83a3B7d918B66BD9ae117519ddC436A82031](https://bscscan.com/address/0xf52a83a3b7d918b66bd9ae117519ddc436a82031)
+
 
 Data is:
 
@@ -89,7 +96,14 @@ It will return a pointer to `memory[divineCode.offset:divineCode.length]`
 
 **Usage:**
 
-- Ethereum Mainnet: `0xD16448E35c21dbC3Ab48e5B32831CC7f8bf9a157`
+- Ethereum Mainnet: 
+```
+0xD16448E35c21dbC3Ab48e5B32831CC7f8bf9a157
+```
+- Binance Smart Chain: 
+```
+0xF52a83a3B7d918B66BD9ae117519ddC436A82031
+```
 
 ```solidity
 // SPDX-License-Identifier: MIT

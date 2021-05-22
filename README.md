@@ -62,7 +62,7 @@ Opcode:
 
 ## Ethereum
 
-The Divine was deployed in [0x7942d89cf2d9650a5fc0698700a483e6b777c62896fac719358994aab245d98c](https://etherscan.io/tx/0x7942d89cf2d9650a5fc0698700a483e6b777c62896fac719358994aab245d98c) at [0xD16448E35c21dbC3Ab48e5B32831CC7f8bf9a157](https://etherscan.io/address/0xd16448e35c21dbc3ab48e5b32831cc7f8bf9a157)
+The Divine was deployed in [0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac](https://etherscan.io/tx/0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac) at [0xb7e5468671dedaf316b73494b9be73a5adba1cdf](https://etherscan.io/address/0xb7e5468671dedaf316b73494b9be73a5adba1cdf)
 
 ## Binance Smart Chain
 
@@ -98,7 +98,7 @@ It will return a pointer to `memory[divineCode.offset:divineCode.length]`
 
 - Ethereum Mainnet: 
 ```
-0xD16448E35c21dbC3Ab48e5B32831CC7f8bf9a157
+0xb7e5468671dedaf316b73494b9be73a5adba1cdf
 ```
 - Binance Smart Chain: 
 ```
@@ -117,7 +117,7 @@ contract TestTheDivine{
     event Log(uint256 indexed _value);
 
     function testRand() public {
-        emit Log(TheDivine(0xD16448E35c21dbC3Ab48e5B32831CC7f8bf9a157).rand());
+        emit Log(TheDivine(0xb7e5468671dedaf316b73494b9be73a5adba1cdf).rand());
     }
 }
 ```

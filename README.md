@@ -10,7 +10,7 @@ Do not use this algorithm in gambling and/or use at your own risk. Definitely do
 
 ## The idea
 
-We get `blockhash` of 32th older blocks from blockchain and combine with `immortal` by using `xor` operator then appending to blockchain state.
+We get `blockhash` of 32 th older blocks from blockchain and combine with `immortal` by using `xor` operator then calculate its digest by using `keccak256` hash function. The new `immortal` value will be assigned with given digest from above step.
 
 ```
     immortal <- blockchain state

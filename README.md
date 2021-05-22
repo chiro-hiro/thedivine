@@ -62,11 +62,11 @@ Opcode:
 
 ## Ethereum
 
-The Divine was deployed in [0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac](https://etherscan.io/tx/0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac) at [0xb7e5468671dedaf316b73494b9be73a5adba1cdf](https://etherscan.io/address/0xb7e5468671dedaf316b73494b9be73a5adba1cdf)
+The Divine was deployed in [0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac](https://etherscan.io/tx/0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac) at [0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf](https://etherscan.io/address/0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf)
 
 ## Binance Smart Chain
 
-The Divine was deployed in [0x73ca699adfe8ae9204dbe299ae2c1492f09999e51950df5278bf3a9f0164cb1a](https://bscscan.com/tx/0x73ca699adfe8ae9204dbe299ae2c1492f09999e51950df5278bf3a9f0164cb1a) at [0xF52a83a3B7d918B66BD9ae117519ddC436A82031](https://bscscan.com/address/0xf52a83a3b7d918b66bd9ae117519ddc436a82031)
+The Divine was deployed in [0x73ca699adfe8ae9204dbe299ae2c1492f09999e51950df5278bf3a9f0164cb1a](https://bscscan.com/tx/0x73ca699adfe8ae9204dbe299ae2c1492f09999e51950df5278bf3a9f0164cb1a) at [0xF52a83a3B7d918B66BD9ae117519ddC436A82031](https://bscscan.com/address/0xF52a83a3B7d918B66BD9ae117519ddC436A82031)
 
 
 Data is:
@@ -98,7 +98,7 @@ It will return a pointer to `memory[divineCode.offset:divineCode.length]`
 
 - Ethereum Mainnet: 
 ```
-0xb7e5468671dedaf316b73494b9be73a5adba1cdf
+0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf
 ```
 - Binance Smart Chain: 
 ```
@@ -107,7 +107,7 @@ It will return a pointer to `memory[divineCode.offset:divineCode.length]`
 
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.4 <0.9.0;
+pragma solidity >=0.7.5 <0.9.0;
 
 interface TheDivine {
     function rand() external returns(uint256);
@@ -117,7 +117,7 @@ contract TestTheDivine{
     event Log(uint256 indexed _value);
 
     function testRand() public {
-        emit Log(TheDivine(0xb7e5468671dedaf316b73494b9be73a5adba1cdf).rand());
+        emit Log(TheDivine(0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf).rand());
     }
 }
 ```

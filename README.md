@@ -19,7 +19,7 @@ We get `blockhash` of 32 th older blocks from blockchain and combine with `immor
     return immortal
 ```
 
-We restrict normal account to trigger smart contract to prevent manipulation, the only way to trigger it is through a deployed smart contract. As long as there are many users of TheDivine we could able to maintenance an immortality chain of entropy.
+We restrict normal account to trigger smart contract to prevent manipulation, the only way to trigger it is through a deployed smart contract. As long as there are many users of TheDivine we could able to maintenance an immortal chain of entropy.
 
 ## Implementation
 

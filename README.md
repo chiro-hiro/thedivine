@@ -124,6 +124,10 @@ contract TestTheDivine{
 
 Gas cost is around `5190 Gas` each call.
 
+# Testing
+
+- Test transaction on Binance Smart Chain: [0xf3b4e1a032904c61c617ec365e9c288d2e1fb8095f1298708974e14d4def2b1b](https://bscscan.com/tx/0xf3b4e1a032904c61c617ec365e9c288d2e1fb8095f1298708974e14d4def2b1b#eventlog)
+
 # Reference
 
 [A Pseudorandom Number Generator with KECCAK Hash Function ](http://www.ijcee.org/papers/439-JE503.pdf)

@@ -60,6 +60,41 @@ Opcode:
 
 # Deployment
 
+## Compile opcode
+
+I wrote my own assembler, you would try and get the same result:
+
+```
+$ node ./assembler/index.js 
+60    PUSH1 0x20
+3d    RETURNDATASIZE
+33    CALLER
+32    ORIGIN
+18    XOR
+60    PUSH1 0x0a
+57    JUMPI
+fd    REVERT
+5b    JUMPDEST
+81    DUP2
+81    DUP2
+80    DUP1
+54    SLOAD
+82    DUP3
+43    NUMBER
+03    SUB
+40    BLOCKHASH
+18    XOR
+81    DUP2
+52    MSTORE
+20    SHA3
+81    DUP2
+55    SSTORE
+f3    RETURN
+
+Output:          60203d333218600a57fd5b8181805482430340188152208155f3
+Tx deploy data:  601a803d90600a8239f360203d333218600a57fd5b8181805482430340188152208155f3
+```
+
 ## Ethereum
 
 The Divine was deployed in [0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac](https://etherscan.io/tx/0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac) at [0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf](https://etherscan.io/address/0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf)

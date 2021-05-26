@@ -1,16 +1,16 @@
 # The Divine
 
-A smart contract which allowed us to generate and secure pseudo-random numbers for the lowest cost. All processes and algorithms are transparent and open to everyone. The algorithm is thus safe and acceptable for a wide range of PRNG applications and situations where the cost to manipulate outweigh the transaction value.
+A smart contract that allowed us to generate and secure pseudo-random numbers for the lowest cost. All processes and algorithms are transparent and open to everyone. The algorithm is thus safe and acceptable for a wide range of PRNG applications and situations where the cost to manipulate outweigh the transaction value.
 
 ## Disclaimer
 
-Do not use this algorithm in gambling and/or use at your own risk. Definitely do not use this algorithm in cryptography. We're highly recommend as an extra salt to improve your random result.
+Do not use this algorithm in gambling and/or use it at your own risk. Do not use this algorithm in cryptography. We highly recommend it as an extra salt to improve your random result.
 
 # What is the idea behind it?
 
 ## The idea
 
-We get `blockhash` of 32 th older blocks from blockchain and combine with `immortal` by using `xor` operator then calculate its digest by using `keccak256` hash function. The new `immortal` value will be assigned with given digest from above step.
+We get `blockhash` of 32nd older blocks from blockchain and combine with `immortal` by using `xor` operator then calculate its digest by using `keccak256` hash function. The new `immortal` value will be assigned with the given digest from the above step.
 
 ```
     immortal <- blockchain state
@@ -19,7 +19,7 @@ We get `blockhash` of 32 th older blocks from blockchain and combine with `immor
     return immortal
 ```
 
-We restrict normal account to trigger smart contract to prevent manipulation, the only way to trigger it is through a deployed smart contract. As long as there are many users of TheDivine we could able to maintenance an immortal chain of entropy.
+We restrict the normal account to trigger this smart contract to prevent manipulation, the only way to trigger it is through a deployed smart contract. As long as there are many users of The Divine we could able to maintain an immortal chain of entropy.
 
 ## Implementation
 
@@ -62,7 +62,7 @@ Opcode:
 
 ## Compile opcode
 
-I wrote my own assembler, you would try and get the same result:
+I wrote my assembler, you would try and get the same result:
 
 ```
 $ node ./assembler/index.js 
@@ -112,7 +112,7 @@ Data is:
 
 ## What is `601a803d90600a8239f3` ?
 
-It's code which was optimized to deploy a smart contract.
+This is code that was optimized to deploy a smart contract.
 
 ```asm
 0000    60  PUSH1 0x1a      ; [divineCode.length]
@@ -161,7 +161,7 @@ Gas cost is around `5190 Gas` each call.
 
 # Testing
 
-- Test transaction on Binance Smart Chain: [0xf3b4e1a032904c61c617ec365e9c288d2e1fb8095f1298708974e14d4def2b1b](https://bscscan.com/tx/0xf3b4e1a032904c61c617ec365e9c288d2e1fb8095f1298708974e14d4def2b1b#eventlog)
+- Testing transaction on Binance Smart Chain: [0xf3b4e1a032904c61c617ec365e9c288d2e1fb8095f1298708974e14d4def2b1b](https://bscscan.com/tx/0xf3b4e1a032904c61c617ec365e9c288d2e1fb8095f1298708974e14d4def2b1b#eventlog)
 
 # Reference
 

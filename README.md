@@ -65,7 +65,7 @@ Opcode:
 I wrote my assembler, you would try and get the same result:
 
 ```
-$ node ./assembler/index.js 
+$ node ./assembler/index.js
 60    PUSH1 0x20
 3d    RETURNDATASIZE
 33    CALLER
@@ -97,15 +97,19 @@ Tx deploy data:  601a803d90600a8239f360203d333218600a57fd5b818180548243034018815
 
 ## Ethereum
 
-The Divine was deployed in [0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac](https://etherscan.io/tx/0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac) at [0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf](https://etherscan.io/address/0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf)
+The Divine was deployed in [0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac](https://etherscan.io/tx/0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac) at [0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf](https://etherscan.io/address/0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf#code)
 
 ## Binance Smart Chain
 
-The Divine was deployed in [0x73ca699adfe8ae9204dbe299ae2c1492f09999e51950df5278bf3a9f0164cb1a](https://bscscan.com/tx/0x73ca699adfe8ae9204dbe299ae2c1492f09999e51950df5278bf3a9f0164cb1a) at [0xF52a83a3B7d918B66BD9ae117519ddC436A82031](https://bscscan.com/address/0xF52a83a3B7d918B66BD9ae117519ddC436A82031)
+The Divine was deployed in [0x73ca699adfe8ae9204dbe299ae2c1492f09999e51950df5278bf3a9f0164cb1a](https://bscscan.com/tx/0x73ca699adfe8ae9204dbe299ae2c1492f09999e51950df5278bf3a9f0164cb1a) at [0xF52a83a3B7d918B66BD9ae117519ddC436A82031](https://bscscan.com/address/0xF52a83a3B7d918B66BD9ae117519ddC436A82031#code)
 
 ## Polygon
 
 The Divine was deployed in [0x7475de6549e9d4bd717f18972dcd1c57fea36d94cb5607a66ca92f33515f863a](https://polygonscan.com/tx/0x7475de6549e9d4bd717f18972dcd1c57fea36d94cb5607a66ca92f33515f863a) at [0x8F2F05d2A036C9AE279B333CAE12c9eC79f6C553](https://polygonscan.com/address/0x8f2f05d2a036c9ae279b333cae12c9ec79f6c553#code)
+
+## Rinkeby
+
+The Divine was deployed in [0x28881447f735195e05546946c9cd404f0a194e94232a3a432f090ac5777adb19](https://rinkeby.etherscan.io/tx/0x28881447f735195e05546946c9cd404f0a194e94232a3a432f090ac5777adb19) at [0x69807cbCa149B58772F0732DcB820C268c5c6093](https://rinkeby.etherscan.io/address/0x69807cbca149b58772f0732dcb820c268c5c6093#code)
 
 Data is:
 
@@ -134,15 +138,20 @@ It will return a pointer to `memory[divineCode.offset:divineCode.length]`
 
 **Usage:**
 
-- Ethereum Mainnet: 
+- Ethereum Mainnet:
+
 ```
 0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf
 ```
-- Binance Smart Chain: 
+
+- Binance Smart Chain:
+
 ```
 0xF52a83a3B7d918B66BD9ae117519ddC436A82031
 ```
-- Polygon: 
+
+- Polygon:
+
 ```
 0x8F2F05d2A036C9AE279B333CAE12c9eC79f6C553
 ```

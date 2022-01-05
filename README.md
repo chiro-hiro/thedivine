@@ -55,7 +55,7 @@ f3    RETURN          ; []
 Opcode:
 
 ```
-60203d333218600a57fd5b8181805482430340188152208155f3
+0x60203d333218600a57fd5b8181805482430340188152208155f3
 ```
 
 # Deployment
@@ -98,6 +98,10 @@ Tx deploy data:  601a803d90600a8239f360203d333218600a57fd5b818180548243034018815
 ## Ethereum
 
 The Divine was deployed in [0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac](https://etherscan.io/tx/0xb2e8610f3c8710c07965f1de7d72345011c8be3b4bdfa9823168017d180754ac) at [0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf](https://etherscan.io/address/0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf#code)
+
+## Fantom
+
+The Divine was deployed in [0xe75b31f4bb2a837fe951597458cdc99480b973e5c32500f2eb7b63dc9f5a8fce](https://ftmscan.com/tx/0xe75b31f4bb2a837fe951597458cdc99480b973e5c32500f2eb7b63dc9f5a8fce) at [0x4B9fd51e5D6E6935635940532d1C5F0B11235630](https://ftmscan.com/address/0x4B9fd51e5D6E6935635940532d1C5F0B11235630#code)
 
 ## Binance Smart Chain
 
@@ -142,6 +146,12 @@ It will return a pointer to `memory[divineCode.offset:divineCode.length]`
 
 ```
 0xb7E5468671dEDaf316B73494B9bE73a5aDbA1cdf
+```
+
+- Fantom:
+
+```
+0x4B9fd51e5D6E6935635940532d1C5F0B11235630
 ```
 
 - Binance Smart Chain:

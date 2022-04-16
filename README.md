@@ -14,7 +14,7 @@ We get `blockhash` of 32nd older blocks from blockchain and combine with `immort
 
 ```
     immortal <- blockchain state
-    currentBlock <- blockchain sate
+    currentBlock <- blockchain state
     immortal <- keccak256(blockhash(currentBlock - 32) xor immortal)
     return immortal
 ```
